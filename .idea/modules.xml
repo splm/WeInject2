@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/WeInject2-Demo.iml" filepath="$PROJECT_DIR$/WeInject2-Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib-weannotation/lib-weannotation.iml" filepath="$PROJECT_DIR$/lib-weannotation/lib-weannotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib-weinject2/lib-weinject2.iml" filepath="$PROJECT_DIR$/lib-weinject2/lib-weinject2.iml" />
+    </modules>
+  </component>
+</project>
