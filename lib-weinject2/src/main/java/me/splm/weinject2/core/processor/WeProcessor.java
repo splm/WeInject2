@@ -87,28 +87,26 @@ public class WeProcessor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment renv) {
         Messager msger=processingEnv.getMessager();
         msger.printMessage(Diagnostic.Kind.NOTE,"start");
-        for(TypeElement tElement:annotations){
-            for(Element element:renv.getElementsAnnotatedWith(tElement)){
-                if(element.getKind()== ElementKind.METHOD){
-                    msger.printMessage(Diagnostic.Kind.NOTE, "This annotation is not apply for Method!");
-                    return false;
-                }
+        for(Element element:renv.getElementsAnnotatedWith(WeInject.class)){
+            if(element.getKind()== ElementKind.METHOD){
+                msger.printMessage(Diagnostic.Kind.NOTE, "This annotation is not apply for Method!");
+                return false;
+            }
 
-                if(element.getKind()==ElementKind.FIELD){
-                    //FIELD
-                    msger.printMessage(Diagnostic.Kind.NOTE, "Target is Field!");
-                    String name=element.toString();
-                    msger.printMessage(Diagnostic.Kind.NOTE, name);//name=testString
-                    member.addFields(name);
-                }
-                if(element.getKind()==ElementKind.CLASS){
-                    //Class
-                    msger.printMessage(Diagnostic.Kind.NOTE, "Target is Class!");
-                    cName=element.getSimpleName().toString();
-                    absName=element.toString();
-                    int lastIndex=absName.lastIndexOf(".");
-                    pName=absName.subSequence(0,lastIndex).toString();
-                }
+            if(element.getKind()==ElementKind.FIELD){
+                //FIELD
+                msger.printMessage(Diagnostic.Kind.NOTE, "Target is Field!");
+                String name=element.toString();
+                msger.printMessage(Diagnostic.Kind.NOTE, name);//name=testString
+                member.addFields(name);
+            }
+            if(element.getKind()==ElementKind.CLASS){
+                //Class
+                msger.printMessage(Diagnostic.Kind.NOTE, "Target is Class!");
+                cName=element.getSimpleName().toString();
+                absName=element.toString();
+                int lastIndex=absName.lastIndexOf(".");
+                pName=absName.subSequence(0,lastIndex).toString();
             }
         }
         try {
