@@ -131,9 +131,10 @@ public class WeProcessor extends AbstractProcessor {
              * like: private static WeSecActivity instance;
              */
             FieldSpec instance=FieldSpec.builder(clazzName, "instance", Modifier.PRIVATE,Modifier.STATIC)
-                    .addJavadoc("create the singleton of @{link "+ clazzName +"} ")
+                    .addJavadoc("create the singleton of {@link "+ clazzName +"} ")
                     .build();
-            TypeName classOfBridgeData=ClassName.get(TARGET_PACKAGE_NAME+".We"+cName,"BridgeDataClass");
+            //TypeName classOfBridgeData=ClassName.get(TARGET_PACKAGE_NAME+".We"+cName,"BridgeDataClass");
+            TypeName classOfBridgeData=ClassName.get(clazzName.toString(),"BridgeDataClass");
             /**
              * android's activity
              */
